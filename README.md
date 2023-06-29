@@ -40,4 +40,8 @@ teď se dají zapnout 02 a 03 servery a pak už
 /sas/sasconfig/Lev1/sas.servers.mid start
 
 # V případě že neprojde Redeploy web app, tak zkusit pročistit cache a logy - udělat pak redeploy znovu
+použít Viktor_Cistic.sh
 
+# po Redeployi pokud nejede server zkontrolovat logy /logs/SASServer1_1/ atd (další servery/appky) 
+catalina.out a server.log
+less /logs/SASServer1_1/server.log
