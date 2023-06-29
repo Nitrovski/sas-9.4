@@ -1,2 +1,5 @@
 # ID TEST 
 http://sas01test.id.infra:7980/SASCIStudio/
+
+# VN Prod
+https://sas.vn.prod:8343/SASCIStudio/
