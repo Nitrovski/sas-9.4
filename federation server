@@ -1,0 +1,9 @@
+Instalace Federation serveru
+
+tar -xvf Y46001la.tar -C /sas/sasconfig/Lev1/FederationServer/bin/
+cp /sas/sasconfig/Lev1/FederationServer/bin/Y46001/dfsutil /sas/sasconfig/Lev1/FederationServer/bin/
+
+cd /sas/sashome/SASFederationServer/4.2/fedserver
+gzip -d -c /sas/sashome/InstallMisc/HotFixes/OneByOne/Y46013la.tar.gz | tar xvf -
+gzip -d -c /sas/sashome/InstallMisc/HotFixes/OneByOne/Y46020la.tar.gz | tar xvf -
+./bin/update_odbc
