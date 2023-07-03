@@ -1,0 +1,7 @@
+# Na co si dát pozor při aplikaci HotFixu
+1: Udělat zálohu SASHOME a SASCONFIG
+2: Zkontrolovat zda se při vypípnání služeb vypnuly všechny procesy pod SASem (ps aux | grep sas) případně je vypnout manuálně
+3: Před aplikací promazat logy a pak je zkontrolovat, zda se neukazuje nějaká chyba
+4: Pokud je nějaká customizace na web app, tak zkontrolovat groovy files a případně je znovu nasadit (/sas/groovy/update_groovy_files.sh) pak stačí jen restartovat SAS web app server 7 
+  /sas/sasconfig/Lev1/Web/WebAppServer/SASServer7_1/bin/tcruntime-ctl.sh restart
+5:
