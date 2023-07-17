@@ -47,7 +47,8 @@ cp -av /sas/oracle_old/sqlnet.ora /sas/oracle/
 cp -av /sas/oracle_old/product/19.0.0/client_1/network/admin/sqlnet.ora /sas/oracle/
 ln -s /usr/lib/oracle/21/client64 /sas/oracle/client
 
-ln -s /usr/lib/oracle/19.18/client64 /sas/oracle/client
+
+ln -s /usr/lib/oracle/21/client64/ /sas/oracle/client
 
 
 #
