@@ -28,6 +28,7 @@ fi;
 
 # Zjištění verze oracle
 # yum list installed | grep instantclient
+# rpm -qa | grep oracle-*
 
 #
 #sudo yum remove oracle-instantclient12.2-basic-12.2.0.1.0-1.x86_64
