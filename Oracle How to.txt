@@ -1,0 +1,63 @@
+#---------------------------------------
+#
+#   FIX for Oracle Vulnerability -
+#   CZEPTS - 4.2023
+#
+#---------------------------------------
+
+#!/bin/bash
+SCRIPT=$(readlink -f "$0")
+SCR_DIR=$(dirname "$SCRIPT")
+DATE=`date +%Y-%m-%d-%H-%M-%S`
+
+OBJCM=/sas/sasconfig/Lev1/ObjectSpawnerCM
+OBJVA=/sas/sasconfig/Lev1/ObjectSpawnerVA
+OBJRT=/sas/sasconfig/Lev1/ObjectSpawner
+
+#
+if [ -d $OBJCM ]; then
+/sas/sasconfig/Lev1/ObjectSpawnerCM/ObjectSpawner.sh stop
+
+elif [ -d $OBJVA ]; then
+/sas/sasconfig/Lev1/ObjectSpawnerVA/ObjectSpawner.sh stop
+
+else 
+/sas/sasconfig/Lev1/ObjectSpawner/ObjectSpawner.sh stop
+
+fi;
+
+# Zjištění verze oracle
+# yum list installed | grep instantclient
+
+#
+#sudo yum remove oracle-instantclient12.2-basic-12.2.0.1.0-1.x86_64
+#sudo yum install /sas/install/oracle/oracle-instantclient19.18*
+
+#
+DATE=`date +%Y-%m-%d-%H-%M-%S`
+cp -av /sas/sashome/SASFoundation/9.4/bin/sasenv_local /sas/sashome/SASFoundation/9.4/bin/sasenv_local.$DATE
+cp -av /sas/sasconfig/Lev1/level_env_usermods.sh /sas/sasconfig/Lev1/level_env_usermods.sh.$DATE
+
+#
+mv /sas/oracle /sas/oracle_old
+mkdir /sas/oracle
+
+cp -av /sas/oracle_old/tnsnames.ora /sas/oracle/
+cp -av /sas/oracle_old/sqlnet.ora /sas/oracle/
+cp -av /sas/oracle_old/product/19.0.0/client_1/network/admin/sqlnet.ora /sas/oracle/
+ln -s /usr/lib/oracle/21/client64 /sas/oracle/client
+
+ln -s /usr/lib/oracle/19.18/client64 /sas/oracle/client
+
+
+#
+if [ -d $OBJCM ]; then
+/sas/sasconfig/Lev1/ObjectSpawnerCM/ObjectSpawner.sh start
+
+elif [ -d $OBJVA ]; then
+/sas/sasconfig/Lev1/ObjectSpawnerVA/ObjectSpawner.sh start
+
+else 
+/sas/sasconfig/Lev1/ObjectSpawner/ObjectSpawner.sh start
+
+fi;
