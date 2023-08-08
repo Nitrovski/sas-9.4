@@ -45,3 +45,6 @@ použít Viktor_Cistic.sh
 # po Redeployi pokud nejede server zkontrolovat logy /logs/SASServer1_1/ atd (další servery/appky) 
 catalina.out a server.log
 less /logs/SASServer1_1/server.log
+
+# Diagnostika RTDM
+rtdm04prod.in.prod:8343/RTDM/Diagnostics.jsp
