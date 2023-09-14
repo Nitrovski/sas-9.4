@@ -18,6 +18,9 @@ Uzitecne prikazy k SAS 9.4 administraci
 cd /sas/sashome/deploymntreg/
 java -jar sas.tools.viewregistry.jar
 
+# Diagnostika na RTDM nodu
+https://rtdm01prod.ph.prod:8343/RTDMDesign/jsp/Diagnostics.jsp
+
 
 # Zkopírování dat z jednoho serveru na druhý
 scp sas-security-update-2023-03-M7.zip sas@sas01prod.id.prod:/sas/sashome/InstallMisc/HotFixes/SecurityUpdates/
