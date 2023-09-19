@@ -1,0 +1,21 @@
+# Spouštění services po jedné
+
+sas/sasconfig/Lev1/sas.servers.pre start
+
+/sas/sasconfig/Lev1/SASMeta/MetadataServer/MetadataServer.sh start
+
+/sas/sasconfig/Lev1/ObjectSpawner/ObjectSpawner.sh start
+
+/sas/sasconfig/Lev1/ConnectSpawner/ConnectSpawner.sh start
+
+/sas/sasconfig/Lev1/FederationServer/bin/dfsadmin.sh start
+
+ 
+
+/sas/sasconfig/Lev1/Web/activemq/bin/activemq start    - Cache Locator
+
+/sas/sasconfig/Lev1/Web/gemfire/instances/ins_41415/gemfire-locator.sh start
+
+/sas/sasconfig/Lev1/Web/WebServer/bin/httpdctl start   - Web server
+
+/sas/sasconfig/Lev1/Web/WebAppServer/SASServer1_1/bin/tcruntime-ctl.sh start   - Sas Server 1
