@@ -1,0 +1,13 @@
+# Prepare of SMU Package
+
+Smu package najdeme ve staženém depotu, je potřeba si ho přetáhnout někam zvlášť do složky, odkud budeme spouštet
+
+•	nejlepší je připravit sdílené místo na všech serverech s velkým uložištěm, kam budeme output ze SMU nahrávat
+•	SMU se musí dělat postupně, proto tedy začínám na SAS 01 
+Základní příkaz na vygenerování SMU balíčku  - musí pouštět ze složky, kde máme smu94 install soubor
+
+./smu94 -- -properties /temp/depot/smu94/smu.properties -replace
+
+smu.properties – tenle file obsahuje důležité parametry k migraci – jako např: heslo k sasadm atd.. 
+ 
+Po úspěšném SMU na každém serveru zvlášť přeneseme komplet output ze SMU na nové prostředí a můžeme začít s instalací z nového depotu, kde vybereme instalaci migrací.
