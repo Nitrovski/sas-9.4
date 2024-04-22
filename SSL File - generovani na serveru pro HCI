@@ -1,0 +1,39 @@
+SSL File - generovani na serveru pro HCI
+
+Prod and pre-prod
+
+
+Generate openssl certificate on SAS Middleware server (eg. sas01preprod.id.nonprod)
+
+under sas
+## Please change "-keyout", "-out", "CN=" and "C=" in openssl command
+openssl req -newkey rsa:2048 -keyout sas01prod.id.prod.key -nodes -sha256 -new -out sas01prod.id.prod.csr -subj "/emailAddress=sas.application.support@embedit.cz/CN=sas01prod.id.prod/O=HCI/C=ID/L=Default City"
+openssl req -newkey rsa:2048 -keyout sas01prod.id.prod.key -nodes -sha256 -new -out sas01prod.id.prod.csr -subj "/emailAddress=sas.application.support@embedit.cz/CN=sas01prod.id.prod/O=HCI/C=ID/L=Default City"
+
+
+Check openssl certificate
+
+under sas
+## Please change "-in" in openssl command
+openssl req -text -noout -verify -in sas01prod.id.prod.csr
+openssl req -text -noout -verify -in sas01prod.id.prod.csr
+
+Test and dev
+check correct PKI server ALL Countries SSL CA#Philippines(PH)-PKIserverspreparedforPROD/NONPROD/INFRA
+
+modify command and generate certificate
+
+under sas
+## Please change HOSt DOMAIN PKI
+Command for certificate generation:
+  
+yum -y install middleware-certnanny
+  
+FOLDER=/etc/certs
+HOST=rtdm01test.ph.infra
+DOMAIN=ph.infra
+PKI=pki01.ph.nonprod
+  
+mkdir -p $FOLDER
+cd $FOLDER
+/opt/CertNanny/bin/auto-enroll-certs.sh -H ${HOST} -D ${DOMAIN} -P ${PKI} 60 45 1 sas.application.support@embedit.cz -web $FOLDER
