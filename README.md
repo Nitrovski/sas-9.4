@@ -11,7 +11,7 @@ Uzitecne prikazy k SAS 9.4 administraci
 
 # vypíše produkty co je na serveru nainstalovany
 
-/sas/sashome/InstallMisc/InstallLogs/DeploymentRegistry.txt+ - 
+/sas/sashome/deploymntreg/DeploymentRegistry.txt
 
 # Vygeneruje nové DeploymentRegistry.txt 
 
